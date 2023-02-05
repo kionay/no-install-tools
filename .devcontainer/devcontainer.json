@@ -1,0 +1,19 @@
+{
+    "name": "dood",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:debian",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "remoteEnv": {
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mhutchie.git-graph",
+				"DavidAnson.vscode-markdownlint",
+				"PKief.material-icon-theme"
+			]
+		}
+	}
+}
