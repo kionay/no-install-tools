@@ -16,5 +16,8 @@
 				"ms-vscode.PowerShell"
 			]
 		}
-	}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/Documents/WindowsPowerShell,target=/host-powershell,type=bind"
+	]
 }
