@@ -1,6 +1,7 @@
 # No-Install-Tools
 
 ## Premise
+
 Instead of installing python or node, why not just use docker?
 
 Running python by itself will open up an interactive shell, and running the python docker image will open the interactive shell in the container.
@@ -10,6 +11,7 @@ docker run -it --rm python:latest python
 ```
 
 ## Persistant Storage
+
 "But", you say, "I want to include a pip-installed package in this interactive shell."
 
 We can run pip from this same container with a similar command. Say we want to install the requests package.
@@ -33,6 +35,7 @@ docker run -it --rm --mount source=python-global-library,target=/usr/local/lib p
 Then the next time we run python we can use that same mount and our global packages will be there.
 
 ## Arbitrary Arguments
+
 "But", you say, "I want to be able to run an arbitrary python command."
 
 This is where this solution becomes _very_ windows-centric.
@@ -71,6 +74,7 @@ function python {
 ```
 
 ## Inject Current Working Directory
+
 "But", you say, "I want to be able to run a python file in **my current directory**."
 
 Wow you don't let up, do you?
@@ -86,6 +90,7 @@ docker run -it --rm
 ```
 
 ## Beyond Python
+
 "But", you complain, "I want to do this for more than just Python!"
 
 In anticipation of doing this for other software, such as node, I have tried to separate the tools into their own directories.
@@ -96,3 +101,14 @@ Running `./compile_powershell_profile.sh` will do just that, and though you may 
 at least you don't have to install each of these programs.
 
 Using the `latest` tag in the docker commands also allows the programs to self-update.
+
+## But Why?
+
+"But", you persist, "why did you do all of this? Why not just install python and node?"
+
+When I need python, node, or some other tool for a particular project that project invariably gets its own virtual environment.
+I think that that is a clean and organized way to handle multiple projects, with a dev container for each.
+Sometimes, though, I don't want a project just to run a quick python shell and test out some syntax or code on the fly.
+I also don't want to have to keep updating python, managing `py.exe` and PATH parameters and appdata folders left over in Windows.
+
+Using this will also break some tools that look for files to run and not just arbitrarily attempting to execute commands, as there is no `python.exe` to run.
