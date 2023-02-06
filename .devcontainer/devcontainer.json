@@ -1,5 +1,5 @@
 {
-    "name": "dood",
+    "name": "no-install-tools",
     "image": "mcr.microsoft.com/vscode/devcontainers/base:debian",
     "features": {
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
