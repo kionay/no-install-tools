@@ -13,7 +13,7 @@ else
 fi
 
 touch $powershell_profile_file
-for program in /workspaces/dind/programs/* ; do
+for program in /workspaces/*/programs/* ; do
     program_name=$(basename $program)
     echo "adding $program_name to powershell profile"
     cat $program/PowershellProfileAddition.ps1 >> $powershell_profile_file

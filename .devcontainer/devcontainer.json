@@ -4,9 +4,6 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
     },
-    "remoteEnv": {
-        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -18,5 +15,6 @@
 	},
 	"mounts": [
 		"source=${localEnv:HOME}${localEnv:USERPROFILE}/Documents/WindowsPowerShell,target=/host-powershell,type=bind"
-	]
+	],
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh"
 }
