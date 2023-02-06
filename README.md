@@ -81,7 +81,7 @@ Instead lets bind mount the current working directory to `/root` and override th
 docker run -it --rm 
   --mount source=python-global-library,target=/usr/local/lib # persist storage
   --mount source=${PWD},target=/root,type=bind               # bind current directory
-  -w /root                                                   # override **w**orking directory
+  -w /root                                                   # override working directory
   python:latest python $args
 ```
 
