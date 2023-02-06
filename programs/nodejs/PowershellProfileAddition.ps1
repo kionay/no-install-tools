@@ -2,12 +2,12 @@ function node {
     if(dockerVolumeExists "node-global-modules" -eq $false) {
         docker volume create node-global-modules
     }
-    docker run -it --rm --mount source=node-global-modules,target=/usr/local/lib/node_modules node:19-alpine node $args
+    docker run -it --rm --mount source=node-global-modules,target=/usr/local/lib/node_modules --mount source=${PWD},target=/root,type=bind -w /root node:19-alpine node $args
 }
 
 function npm {
     if(dockerVolumeExists "node-global-modules" -eq $false) {
         docker volume create node-global-modules
     }
-    docker run -it --rm --mount source=node-global-modules,target=/usr/local/lib/node_modules node:19-alpine npm -g $args
+    docker run -it --rm --mount source=node-global-modules,target=/usr/local/lib/node_modules --mount source=${PWD},target=/root,type=bind -w /root node:19-alpine npm -g $args
 }
